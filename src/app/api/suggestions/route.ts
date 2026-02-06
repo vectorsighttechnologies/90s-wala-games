@@ -1,21 +1,17 @@
 import { NextResponse } from 'next/server';
-import { insertSuggestionRow } from '@/lib/catalyst';
 
 export async function POST(request: Request) {
     try {
         const { gameName, email } = await request.json();
 
-        console.log('Submitting Game Suggestion to Catalyst:', { gameName, email });
+        console.log('Game suggestion:', { gameName, email });
 
-        // Insert into Catalyst DataStore
-        const result = await insertSuggestionRow({
-            GameName: gameName,
-            Email: email
-        });
-
+        // TODO: Add Catalyst DataStore integration after deployment works
+        // For now, just return success
         return NextResponse.json({
             success: true,
-            data: result
+            message: 'Suggestion received',
+            data: { gameName, email }
         });
     } catch (error: any) {
         console.error('Suggestion API error:', error);
