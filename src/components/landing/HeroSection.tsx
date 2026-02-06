@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { Gamepad2, Sparkles, Loader2 } from "lucide-react";
 
 interface HeroSectionProps {
     onEmailSubmit: (email: string, source: string) => Promise<void>;
@@ -48,8 +47,6 @@ export default function HeroSection({ onEmailSubmit }: HeroSectionProps) {
                 <div className="absolute top-40 right-20 text-5xl animate-pulse opacity-30">👾</div>
                 <div className="absolute bottom-40 left-20 text-4xl animate-bounce opacity-30" style={{ animationDelay: "0.5s" }}>🎮</div>
                 <div className="absolute bottom-20 right-10 text-5xl animate-spin opacity-40" style={{ animationDuration: "3s" }}>💿</div>
-                <div className="absolute top-1/2 left-1/4 text-3xl animate-pulse opacity-20">⭐</div>
-                <div className="absolute top-1/3 right-1/3 text-4xl animate-bounce opacity-25" style={{ animationDelay: "1s" }}>🏆</div>
             </div>
 
             {/* Grid overlay */}
@@ -58,7 +55,7 @@ export default function HeroSection({ onEmailSubmit }: HeroSectionProps) {
             <div className="container mx-auto px-4 py-20 text-center relative z-10">
                 {/* Badge */}
                 <div className="inline-flex items-center gap-2 bg-cyan-500/20 border border-cyan-400/50 text-cyan-300 rounded-full px-4 py-2 mb-8 backdrop-blur-sm shadow-[0_0_20px_rgba(34,211,238,0.3)]">
-                    <Sparkles className="w-4 h-4" />
+                    <span>✨</span>
                     <span className="text-sm font-medium tracking-wider">SYSTEM ONLINE // LAUNCHING SOON</span>
                 </div>
 
@@ -95,14 +92,7 @@ export default function HeroSection({ onEmailSubmit }: HeroSectionProps) {
                             disabled={isSubmitting}
                             className="h-12 px-6 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-semibold hover:from-cyan-400 hover:to-blue-400 disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-lg shadow-cyan-500/25 flex items-center justify-center gap-2"
                         >
-                            {isSubmitting ? (
-                                <Loader2 className="w-5 h-5 animate-spin" />
-                            ) : (
-                                <>
-                                    <Gamepad2 className="w-5 h-5" />
-                                    Join Waitlist
-                                </>
-                            )}
+                            {isSubmitting ? "⏳" : "🎮"} {isSubmitting ? "Joining..." : "Join Waitlist"}
                         </button>
                     </div>
 

@@ -1,22 +1,18 @@
 "use client";
 
-import { Gamepad2 } from "lucide-react";
-
 export default function Footer() {
     const currentYear = new Date().getFullYear();
 
     return (
         <footer className="py-16 bg-black/80 border-t border-pink-500/10 relative overflow-hidden">
-            {/* Subtle glow background */}
             <div className="absolute bottom-0 right-0 w-96 h-96 bg-pink-500/5 blur-[120px] rounded-full -mb-48 -mr-24" />
 
             <div className="container mx-auto px-4 relative z-10">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
-                    {/* Logo & Tagline */}
                     <div className="flex flex-col gap-4">
                         <div className="flex items-center gap-3 group">
-                            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500/20 to-purple-500/20 border border-cyan-500/30 flex items-center justify-center group-hover:border-cyan-500/60 transition-all">
-                                <Gamepad2 className="w-6 h-6 text-cyan-400" />
+                            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500/20 to-purple-500/20 border border-cyan-500/30 flex items-center justify-center text-2xl group-hover:border-cyan-500/60 transition-all">
+                                🎮
                             </div>
                             <div>
                                 <p className="font-bold text-2xl text-white tracking-tight">90s WALA GAMES</p>
@@ -28,7 +24,6 @@ export default function Footer() {
                         </p>
                     </div>
 
-                    {/* Center: Launching Soon */}
                     <div className="flex flex-col items-center justify-center gap-4">
                         <div className="bg-cyan-500/10 text-cyan-400 border border-cyan-500/30 px-6 py-3 rounded-full font-bold text-xl animate-pulse tracking-widest">
                             🚀 LAUNCHING SOON
@@ -36,7 +31,6 @@ export default function Footer() {
                         <p className="text-xs text-gray-600 uppercase tracking-widest">Join the evolution</p>
                     </div>
 
-                    {/* Social Links */}
                     <div className="flex flex-col items-end gap-6">
                         <div className="flex items-center gap-4">
                             {[
@@ -57,10 +51,8 @@ export default function Footer() {
                     </div>
                 </div>
 
-                {/* Divider */}
                 <div className="my-12 border-t border-white/5" />
 
-                {/* Bottom Row */}
                 <div className="flex flex-col md:flex-row items-center justify-between gap-6 text-sm">
                     <div className="flex gap-8 text-gray-600 uppercase tracking-widest text-[10px]">
                         <a href="#" className="hover:text-cyan-400 transition-colors">Privacy Policy</a>

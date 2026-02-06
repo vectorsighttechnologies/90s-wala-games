@@ -1,7 +1,5 @@
 "use client";
 
-import { Trophy, Medal, Crown, Flame, Users } from "lucide-react";
-
 interface LeaderboardEntry {
     rank: number;
     name: string;
@@ -20,27 +18,19 @@ const mockLeaderboard: LeaderboardEntry[] = [
 
 const getRankIcon = (rank: number) => {
     switch (rank) {
-        case 1:
-            return <Crown className="w-5 h-5 text-yellow-400" />;
-        case 2:
-            return <Medal className="w-5 h-5 text-gray-400" />;
-        case 3:
-            return <Medal className="w-5 h-5 text-orange-400" />;
-        default:
-            return <span className="text-sm font-bold text-gray-500">#{rank}</span>;
+        case 1: return "👑";
+        case 2: return "🥈";
+        case 3: return "🥉";
+        default: return `#${rank}`;
     }
 };
 
 const getRankStyle = (rank: number) => {
     switch (rank) {
-        case 1:
-            return "bg-yellow-500/10 border-l-yellow-500";
-        case 2:
-            return "bg-gray-500/10 border-l-gray-400";
-        case 3:
-            return "bg-orange-500/10 border-l-orange-500";
-        default:
-            return "bg-slate-800/50 border-l-slate-600";
+        case 1: return "bg-yellow-500/10 border-l-yellow-500";
+        case 2: return "bg-gray-500/10 border-l-gray-400";
+        case 3: return "bg-orange-500/10 border-l-orange-500";
+        default: return "bg-slate-800/50 border-l-slate-600";
     }
 };
 
@@ -49,10 +39,9 @@ export default function LeaderboardPreview() {
         <section className="py-20 bg-slate-900">
             <div className="container mx-auto px-4">
                 <div className="grid lg:grid-cols-2 gap-12 items-center">
-                    {/* Left: Text Content */}
                     <div>
                         <div className="inline-flex items-center gap-2 bg-yellow-500/20 border border-yellow-500/50 text-yellow-300 rounded-full px-4 py-2 mb-4">
-                            <Trophy className="w-4 h-4" />
+                            <span>🏆</span>
                             <span className="text-sm font-medium">Competitive Gaming</span>
                         </div>
 
@@ -69,8 +58,8 @@ export default function LeaderboardPreview() {
 
                         <div className="space-y-4">
                             <div className="flex items-center gap-4">
-                                <div className="w-12 h-12 rounded-xl bg-pink-500/20 flex items-center justify-center">
-                                    <Users className="w-6 h-6 text-pink-400" />
+                                <div className="w-12 h-12 rounded-xl bg-pink-500/20 flex items-center justify-center text-2xl">
+                                    👥
                                 </div>
                                 <div>
                                     <p className="font-semibold text-white">Friend Groups</p>
@@ -79,8 +68,8 @@ export default function LeaderboardPreview() {
                             </div>
 
                             <div className="flex items-center gap-4">
-                                <div className="w-12 h-12 rounded-xl bg-orange-500/20 flex items-center justify-center">
-                                    <Flame className="w-6 h-6 text-orange-400" />
+                                <div className="w-12 h-12 rounded-xl bg-orange-500/20 flex items-center justify-center text-2xl">
+                                    🔥
                                 </div>
                                 <div>
                                     <p className="font-semibold text-white">Win Streaks</p>
@@ -89,8 +78,8 @@ export default function LeaderboardPreview() {
                             </div>
 
                             <div className="flex items-center gap-4">
-                                <div className="w-12 h-12 rounded-xl bg-cyan-500/20 flex items-center justify-center">
-                                    <Trophy className="w-6 h-6 text-cyan-400" />
+                                <div className="w-12 h-12 rounded-xl bg-cyan-500/20 flex items-center justify-center text-2xl">
+                                    🏆
                                 </div>
                                 <div>
                                     <p className="font-semibold text-white">Seasonal Tournaments</p>
@@ -100,42 +89,34 @@ export default function LeaderboardPreview() {
                         </div>
                     </div>
 
-                    {/* Right: Mock Leaderboard */}
                     <div>
                         <div className="bg-slate-800/50 border border-slate-700/50 rounded-xl overflow-hidden">
-                            {/* Header */}
                             <div className="bg-gradient-to-r from-cyan-500/20 via-purple-500/20 to-pink-500/20 border-b border-slate-700/50 p-4">
                                 <h3 className="flex items-center gap-2 text-xl font-bold text-white">
-                                    <Trophy className="w-6 h-6 text-yellow-400" />
-                                    Weekly Ludo Champions
+                                    🏆 Weekly Ludo Champions
                                 </h3>
                             </div>
 
-                            {/* Leaderboard Entries */}
                             <div className="divide-y divide-slate-700/50">
                                 {mockLeaderboard.map((entry) => (
                                     <div
                                         key={entry.rank}
                                         className={`flex items-center gap-4 p-4 border-l-4 transition-all hover:bg-slate-700/30 ${getRankStyle(entry.rank)}`}
                                     >
-                                        {/* Rank */}
-                                        <div className="w-8 flex justify-center">
+                                        <div className="w-8 flex justify-center text-lg">
                                             {getRankIcon(entry.rank)}
                                         </div>
 
-                                        {/* Avatar & Name */}
                                         <div className="flex items-center gap-3 flex-1">
                                             <span className="text-2xl">{entry.avatar}</span>
                                             <div>
                                                 <p className="font-medium text-white">{entry.name}</p>
                                                 <div className="flex items-center gap-1 text-xs text-gray-500">
-                                                    <Flame className="w-3 h-3 text-orange-400" />
-                                                    {entry.streak} day streak
+                                                    🔥 {entry.streak} day streak
                                                 </div>
                                             </div>
                                         </div>
 
-                                        {/* Score */}
                                         <div className="text-right">
                                             <p className="text-xl font-bold text-white">{entry.score.toLocaleString()}</p>
                                             <p className="text-xs text-gray-500">points</p>
